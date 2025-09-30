@@ -27,9 +27,9 @@ header img { height: 75px; }
 header .title { text-align: center; flex-grow: 1; font-weight: bold; }
 /*header .page { text-align: right; }*/
 
-/* フッター（固定） */
+/* フッター */
 footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   right: 0;
@@ -44,11 +44,11 @@ footer {
 /* コンテナ：ヘッダー分の余白を確保、左右カラムレイアウト */
 .container {
   display: flex;
-  justify-content: center;   /* 中央寄せ */
-  margin: 30px auto 100px auto;  /* 上下30px、左右は中央配置 */
-  width: fit-content;        /* 中身に合わせた幅 */
+  justify-content: center;
+  margin: 130px auto 125px auto; /* 上下マージンをヘッダーとフッターに合わせて増やす */
+  width: fit-content;
   min-height: 100vh;
-  padding-top: 100px;        /* ヘッダー分のスペース */
+  padding-top: 0; /* ヘッダー分のスペースはマージンに統合 */
 }
 
 /* ===== サイドメニュー ===== */
