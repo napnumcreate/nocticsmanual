@@ -1,0 +1,191 @@
+/* ===== 基本リセット / レイアウト ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* ヘッダー（固定） */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* ヘッダー高さの基準 */
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 1000;
+}
+header img { height: 75px; }
+header .title { text-align: center; flex-grow: 1; font-weight: bold; }
+/*header .page { text-align: right; }*/
+
+/* フッター（固定） */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 75px;
+  background: #f9f9f9;
+}
+
+/* コンテナ：ヘッダー分の余白を確保、左右カラムレイアウト */
+.container {
+  display: flex;
+  justify-content: center;   /* 中央寄せ */
+  margin: 30px auto 100px auto;  /* 上下30px、左右は中央配置 */
+  width: fit-content;        /* 中身に合わせた幅 */
+  min-height: 100vh;
+  padding-top: 100px;        /* ヘッダー分のスペース */
+}
+
+/* ===== サイドメニュー ===== */
+.side-menu {
+  width: 220px;
+  position: sticky;
+  top: 75px; /* ヘッダー高さ分 */
+  height: calc(100vh - 75px);
+  padding: 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  margin-right: 20px; /* ← ここでメインコンテンツとの距離を確保 */
+}
+
+/* サイドメニュー内の見た目 */
+.side-menu h3 {
+  margin: 6px 0 8px 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+.side-menu hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 6px 0 10px 0;
+}
+.menu-btn {
+  display: block;
+  text-decoration: none;
+  color: #0078d4;
+  padding: 6px 0;
+  border-radius: 0;
+  background: transparent;
+}
+.menu-btn:hover,
+.menu-btn:focus {
+  color: #005a9e;
+  outline: none;
+}
+
+/* ===== メインエリア ===== */
+/* メインコンテンツ（さらに狭めに固定） */
+.main-content {
+  width: 800px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* 内部スクロールを削除 */
+  overflow-y: visible;
+  min-height: auto;
+  max-height: none;
+}
+
+.main-content .content {
+  width: 100%;
+}
+
+/* ===== ページ内の共通要素 ===== */
+.page-title {
+  background-color: #ff99cc;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.breadcrumb {
+  font-size: 0.95em;
+  margin-bottom: 18px;
+  width: 100%;
+}
+.breadcrumb a { text-decoration: none; color: #0078d4; }
+.breadcrumb span { color: #555; }
+
+/* STEPブロック */
+.step {
+  border: 1px solid #e0e0e0;
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  background-color: #fafafa;
+  width: 100%;
+}
+
+.step-header { 
+  display:flex; 
+  align-items:center; 
+  margin-bottom:10px;
+  padding-bottom: 10px; /* ボーダーと内容の間に余白 */
+  border-bottom: 1px solid #ccc; 
+}
+
+.step-number {
+  font-weight: bold;
+  background-color: #0078d4;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  margin-right: 12px;
+}
+.step-title { font-weight: bold; font-size: 1.05em; }
+
+/* STEP本文：テキスト左、画像右 */
+.step-body {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* 折り返し禁止 */
+  box-sizing: border-box;
+}
+
+.step-text {
+  flex: 0 0 calc(60% - 10px); /* gapを考慮して少し引く */
+  max-width: calc(60% - 10px);
+  word-break: normal;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* 右画像：幅40%固定 */
+.step-image {
+  flex: 0 0 calc(40% - 10px); /* gapを考慮して少し引く */
+  max-width: calc(40% - 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.step-image img {
+  max-width: 100%;  /* 親要素の幅を超えない */
+  height: auto;     /* アスペクト比維持 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: block;   /* 余計な隙間を消す */
+}
