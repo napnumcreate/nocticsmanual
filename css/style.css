@@ -161,12 +161,12 @@ footer {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  flex-wrap: nowrap; /* 折り返し禁止 */
+  flex-wrap: nowrap;
   box-sizing: border-box;
 }
 
 .step-text {
-  flex: 0 0 calc(60% - 10px); /* gapを考慮して少し引く */
+  flex: 0 0 calc(60% - 10px);
   max-width: calc(60% - 10px);
   word-break: normal;
   line-height: 1.6;
@@ -175,7 +175,7 @@ footer {
 
 /* 右画像：幅40%固定 */
 .step-image {
-  flex: 0 0 calc(40% - 10px); /* gapを考慮して少し引く */
+  flex: 0 0 calc(40% - 10px);
   max-width: calc(40% - 10px);
   display: flex;
   justify-content: center;
