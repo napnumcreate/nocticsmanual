@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>勤怠管理システム ユーザーズマニュアル</title>
 <link rel="stylesheet" href="../../../css/style.css">
+<!-- パンくずリスト用のwindow.breadcrumbItemsは不要になったので削除 -->
 </head>
 <body>
 
@@ -42,12 +43,7 @@
   <div class="page-title">キャストの追加/登録/削除</div>
 
   <!-- パンくず -->
-  <nav class="breadcrumb">
-    <a href="00_toppage.html">ホーム</a> &gt;
-    <!--<a href="#">設定する</a> &gt;-->
-    <span>設定する</span> &gt;
-    <a href="#">キャストの追加/登録/削除</a>
-  </nav>
+  <nav class="breadcrumb" id="breadcrumb"></nav>
 
   <!-- STEP1 -->
   <section class="step">
