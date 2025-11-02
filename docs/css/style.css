@@ -61,10 +61,9 @@ footer {
   background-color: #f4f4f4;
   border: 1px solid #ccc;
   margin-right: 20px;
-  overflow-y: auto; /* ← 追加 */
+  overflow-y: auto;
 }
 
-/* サイドメニュー内の見た目 */
 .side-menu h3 {
   margin: 6px 0 8px 0;
   font-size: 1em;
@@ -90,14 +89,12 @@ footer {
 }
 
 /* ===== メインエリア ===== */
-/* メインコンテンツ（さらに狭めに固定） */
 .main-content {
   width: 800px;
   padding: 20px;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  /* 内部スクロールを削除 */
   overflow-y: visible;
   min-height: auto;
   max-height: none;
@@ -128,7 +125,7 @@ footer {
 .breadcrumb a { text-decoration: none; color: #0078d4; }
 .breadcrumb span { color: #555; }
 
-/* STEPブロック */
+/* ===== STEPブロック ===== */
 .step {
   border: 1px solid #e0e0e0;
   padding: 14px;
@@ -142,7 +139,7 @@ footer {
   display:flex; 
   align-items:center; 
   margin-bottom:10px;
-  padding-bottom: 10px; /* ボーダーと内容の間に余白 */
+  padding-bottom: 10px;
   border-bottom: 1px solid #ccc; 
 }
 
@@ -165,18 +162,19 @@ footer {
   box-sizing: border-box;
 }
 
+/* ✅ 修正版：画像がないときはテキストを100%幅に */
 .step-text {
-  flex: 0 0 calc(60% - 10px);
-  max-width: calc(60% - 10px);
+  flex: 1 1 100%;
+  max-width: 100%;
   word-break: normal;
   line-height: 1.6;
   box-sizing: border-box;
 }
 
-/* 右画像：幅40%固定 */
+/* 右画像：あるときだけ表示される（40%幅） */
 .step-image {
-  flex: 0 0 calc(40% - 10px);
-  max-width: calc(40% - 10px);
+  flex: 0 0 40%;
+  max-width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,9 +182,19 @@ footer {
 }
 
 .step-image img {
-  max-width: 100%;  /* 親要素の幅を超えない */
-  height: auto;     /* アスペクト比維持 */
+  max-width: 100%;
+  height: auto;
   border: 1px solid #ccc;
   border-radius: 5px;
-  display: block;   /* 余計な隙間を消す */
+  display: block;
+}
+
+/* スマホ対応：縦並び */
+@media (max-width: 768px) {
+  .step-body {
+    flex-direction: column;
+  }
+  .step-image {
+    max-width: 100%;
+  }
 }

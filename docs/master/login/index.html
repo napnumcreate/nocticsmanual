@@ -1,173 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>勤怠管理システム ユーザーズマニュアル</title>
-<link rel="stylesheet" href="../../css/style.css">
+  <meta charset="UTF-8">
+  <!-- タイトルは load-common.js が共通化で上書き -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
-<!-- headerを外部ファイルから読み込む -->
-<header id="main-header"></header>
+  <!-- headerを外部ファイルから読み込む -->
+  <header id="main-header"></header>
 
-<div class="container">
-  <!-- side-menuを外部ファイルから読み込む -->
-  <nav class="side-menu" id="main-side-menu"></nav>
+  <div class="container">
+    <!-- side-menuを外部ファイルから読み込む -->
+    <nav class="side-menu" id="main-side-menu"></nav>
 
-  <!-- 右側メインコンテンツ -->
-  <main class="main-content">
-  <div class="content">
-  <!-- ページタイトル -->
-  <div class="page-title">ログイン操作</div>
+    <!-- 右側メインコンテンツ -->
+    <main class="main-content">
+      <div class="content">
+        <!-- ページタイトル -->
+        <div class="page-title">ログイン操作</div>
 
-  <!-- パンくず -->
-  <nav class="breadcrumb" id="breadcrumb"></nav>
+        <!-- パンくず -->
+        <nav class="breadcrumb" id="breadcrumb"></nav>
 
-  <!-- STEP1 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順1</div>
-      <div class="step-title">ブラウザからシステムにアクセス</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          PCでインターネットブラウザを起動します。（Microsoft Edge、Google Chromeなど）
-          <br>
-          <br>画面上部のアドレスバーにNocticsのURLを入力し、ログイン画面を表示します。
-        </p>
+        <!-- 自動生成されるSTEPの入れ物 -->
+        <div id="auto-steps"></div>
+
+        <!-- 最終更新日 -->
+        <p><br>最終更新日：2025年9月30日</p>
       </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP1.png" alt="STEP1の操作画面">
-      </div>
-    </div>
-  </section>
+    </main>
+  </div>
 
-  <!-- STEP2 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順2</div>
-      <div class="step-title">ログイン画面へ</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          ログイン画面が表示されたら、「メールアドレス」と「パスワード」を入力して「ログイン」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP2.png" alt="STEP2の操作画面">
-      </div>
-    </div>
-  </section>
+  <!-- footerを外部ファイルから読み込む -->
+  <footer id="main-footer"></footer>
 
-    <!-- STEP3 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順3</div>
-      <div class="step-title">ログイン確認</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          画面がNocticsのトップページに切り替わったら、ログインは完了です。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP3.png" alt="STEP3の操作画面">
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP4 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順4</div>
-      <div class="step-title">ログインに失敗する場合</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          「missing email or phone」等のメッセージが出てログインに失敗する場合は、メールアドレスかパスワードが間違っています。
-          <br>
-          <br>パスワードを失念された場合は「パスワードを忘れた方はこちら」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP4.png" alt="STEP4の操作画面">
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP5 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順5</div>
-      <div class="step-title">パスワード再設定メール送信</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          Nocticsの登録メールアドレスを入力し、「パスワード再設定メール送信」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP5.png" alt="STEP5の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP6 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順6</div>
-      <div class="step-title">メールの確認</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          再設定用メールが届いたら内容を確認し、メールに記載の内容に従い再設定を行ってください。
-        </p>
-      </div>
-      <!--<div class="step-image">
-        <img src="../../img/01/STEP6.png" alt="STEP6の操作画面">
-      </div>-->
-    </div>
-  </section>
-
-    <!-- STEP7 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順7</div>
-      <div class="step-title">メールが届かない/再設定用のメールアドレスを忘れた</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          メールが届かない、再設定用のメールアドレスを忘れたなどのお困りごとは、「<a href="">お問い合わせフォーム</a>」よりお問い合わせください。
-        </p>
-      </div>
-      <!--<div class="step-image">
-        <img src="../../img/01/STEP7.png" alt="STEP7の操作画面">
-      </div>-->
-    </div>
-  </section>
-
-<!-- 最終更新日 -->
-<p>
-  <br>
-  最終更新日：2025年9月30日
-</p>
-
-</div>
-</main>
-</div>
-
-<!-- footerを外部ファイルから読み込む -->
-<footer id="main-footer"></footer>
-
-<!-- 共通JSを読み込む -->
-<script src="../../js/load-common.js"></script>
-
+  <!-- 共通JSを読み込む -->
+  <script src="../../js/load-common.js"></script>
 </body>
 </html>

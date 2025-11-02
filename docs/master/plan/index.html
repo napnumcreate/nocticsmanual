@@ -1,225 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>勤怠管理システム ユーザーズマニュアル</title>
-<link rel="stylesheet" href="../../css/style.css">
+  <meta charset="UTF-8">
+  <!-- タイトルは load-common.js 側で共通上書き -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
-<!-- headerを外部ファイルから読み込む -->
-<header id="main-header"></header>
+  <!-- headerを外部ファイルから読み込む -->
+  <header id="main-header"></header>
 
-<div class="container">
-  <!-- side-menuを外部ファイルから読み込む -->
-  <nav class="side-menu" id="main-side-menu"></nav>
+  <div class="container">
+    <!-- side-menuを外部ファイルから読み込む -->
+    <nav class="side-menu" id="main-side-menu"></nav>
 
-  <!-- 右側メインコンテンツ -->
-  <main class="main-content">
-  <div class="content">
-  <!-- ページタイトル -->
-  <div class="page-title">予約方法の追加/登録/削除</div>
+    <!-- 右側メインコンテンツ -->
+    <main class="main-content">
+      <div class="content">
+        <!-- ページタイトル -->
+        <div class="page-title">予約方法の追加/登録/削除</div>
 
-  <!-- パンくず -->
-  <nav class="breadcrumb" id="breadcrumb"></nav>
+        <!-- パンくず -->
+        <nav class="breadcrumb" id="breadcrumb"></nav>
 
-  <!-- STEP1 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順1</div>
-      <div class="step-title">データ管理画面へ</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          ダッシュボードより、「メニュー」の「データ管理」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP1.png" alt="STEP1の操作画面">
-      </div>
-    </div>
-  </section>
+        <!-- 自動生成されるSTEPの入れ物 -->
+        <div id="auto-steps"></div>
 
-  <!-- STEP2 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順2</div>
-      <div class="step-title">予約方法画面へ</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          データ管理画面より、「女の子タイプ」をクリックします。
-        </p>
+        <!-- 最終更新日 -->
+        <p>最終更新日：2025年9月30日</p>
       </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP2.png" alt="STEP2の操作画面">
-      </div>
-    </div>
-  </section>
+    </main>
+  </div>
 
-    <!-- STEP3 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順3</div>
-      <div class="step-title">予約方法追加</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          女の子タイプ一覧画面に遷移します。右上の「女の子タイプ追加」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP3.png" alt="STEP3の操作画面">
-      </div>
-    </div>
-  </section>
+  <!-- footerを外部ファイルから読み込む -->
+  <footer id="main-footer"></footer>
 
-  <!-- STEP4 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順4</div>
-      <div class="step-title">予約方法入力</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          タイプ名を入力します。
-          <br>
-          <br>
-          <br>「追加」を押下し確定します。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP4.png" alt="STEP4の操作画面">
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP5 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順5</div>
-      <div class="step-title">登録データ確認</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP5.png" alt="STEP5の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP6 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順6</div>
-      <div class="step-title">変更したいとき</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          クリック
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP6.png" alt="STEP6の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP7 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順7</div>
-      <div class="step-title">更新を押す</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          編集して更新
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP7.png" alt="STEP7の操作画面">
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP8 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順8</div>
-      <div class="step-title">削除</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          削除を押す
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP8.png" alt="STEP8の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP9 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順9</div>
-      <div class="step-title">あああ</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          あああ
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP9.png" alt="STEP9の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP10 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順10</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/05/STEP10.png" alt="STEP10の操作画面">
-      </div>
-    </div>
-  </section>
-
-<!-- 最終更新日 -->
-<p>
-  最終更新日：2025年9月30日
-</p>
-
-</div>
-</main>
-</div>
-
-<!-- footerを外部ファイルから読み込む -->
-<footer id="main-footer"></footer>
-
-<!-- 共通JSを読み込む -->
-<script src="../../js/load-common.js"></script>
-
+  <!-- 共通JSを読み込む -->
+  <script src="../../js/load-common.js"></script>
 </body>
 </html>
