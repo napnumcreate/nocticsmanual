@@ -2,22 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Noctics ユーザーズマニュアル</title>
-<link rel="stylesheet" href="../css/style.css">
+<title>勤怠管理システム ユーザーズマニュアル</title>
+<link rel="stylesheet" href="../../../css/style.css">
 </head>
 <body>
 
-<!-- headerを外部ファイルから読み込むように修正 -->
+<!-- headerを外部ファイルから読み込む -->
 <header id="main-header"></header>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  fetch("../header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("main-header").innerHTML = html;
-    });
-});
-</script>
 
 <div class="container">
   <!-- 左側メニュー -->
@@ -48,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <main class="main-content">
   <div class="content">
   <!-- ページタイトル -->
-  <div class="page-title">キャストの追加/登録/削除</div>
+  <div class="page-title">予約方法の追加/登録/削除</div>
 
   <!-- パンくず -->
   <nav class="breadcrumb">
@@ -71,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP1.png" alt="STEP1の操作画面">
+        <img src="../../img/05/STEP1.png" alt="STEP1の操作画面">
       </div>
     </div>
   </section>
@@ -80,16 +71,16 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順2</div>
-      <div class="step-title">キャスト一覧画面へ</div>
+      <div class="step-title">予約方法画面へ</div>
     </div>
     <div class="step-body">
       <div class="step-text">
         <p>
-          データ管理画面より、「キャスト」をクリックします。
+          データ管理画面より、「女の子タイプ」をクリックします。
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP2.png" alt="STEP2の操作画面">
+        <img src="../../img/05/STEP2.png" alt="STEP2の操作画面">
       </div>
     </div>
   </section>
@@ -98,16 +89,16 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順3</div>
-      <div class="step-title">キャスト追加</div>
+      <div class="step-title">予約方法追加</div>
     </div>
     <div class="step-body">
       <div class="step-text">
         <p>
-          キャスト一覧画面に遷移します。右上の「キャスト追加」をクリックします。
+          女の子タイプ一覧画面に遷移します。右上の「女の子タイプ追加」をクリックします。
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP3.png" alt="STEP3の操作画面">
+        <img src="../../img/05/STEP3.png" alt="STEP3の操作画面">
       </div>
     </div>
   </section>
@@ -116,16 +107,19 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順4</div>
-      <div class="step-title">タイトル</div>
+      <div class="step-title">予約方法入力</div>
     </div>
     <div class="step-body">
       <div class="step-text">
         <p>
-          テキスト
+          タイプ名を入力します。
+          <br>
+          <br>
+          <br>「追加」を押下し確定します。
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP4.png" alt="STEP4の操作画面">
+        <img src="../../img/05/STEP4.png" alt="STEP4の操作画面">
       </div>
     </div>
   </section>
@@ -134,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順5</div>
-      <div class="step-title">タイトル</div>
+      <div class="step-title">登録データ確認</div>
     </div>
     <div class="step-body">
       <div class="step-text">
@@ -143,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP5.png" alt="STEP5の操作画面">
+        <img src="../../img/05/STEP5.png" alt="STEP5の操作画面">
       </div>
     </div>
   </section>
@@ -152,16 +146,16 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順6</div>
-      <div class="step-title">タイトル</div>
+      <div class="step-title">変更したいとき</div>
     </div>
     <div class="step-body">
       <div class="step-text">
         <p>
-          テキスト
+          クリック
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP6.png" alt="STEP6の操作画面">
+        <img src="../../img/05/STEP6.png" alt="STEP6の操作画面">
       </div>
     </div>
   </section>
@@ -170,16 +164,16 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順7</div>
-      <div class="step-title">タイトル</div>
+      <div class="step-title">更新を押す</div>
     </div>
     <div class="step-body">
       <div class="step-text">
         <p>
-          テキスト
+          編集して更新
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP7.png" alt="STEP7の操作画面">
+        <img src="../../img/05/STEP7.png" alt="STEP7の操作画面">
       </div>
     </div>
   </section>
@@ -188,16 +182,16 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順8</div>
-      <div class="step-title">タイトル</div>
+      <div class="step-title">削除</div>
     </div>
     <div class="step-body">
       <div class="step-text">
         <p>
-          テキスト
+          削除を押す
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP8.png" alt="STEP8の操作画面">
+        <img src="../../img/05/STEP8.png" alt="STEP8の操作画面">
       </div>
     </div>
   </section>
@@ -206,16 +200,16 @@ document.addEventListener("DOMContentLoaded", function() {
   <section class="step">
     <div class="step-header">
       <div class="step-number">手順9</div>
-      <div class="step-title">タイトル</div>
+      <div class="step-title">あああ</div>
     </div>
     <div class="step-body">
       <div class="step-text">
         <p>
-          テキスト
+          あああ
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP9.png" alt="STEP9の操作画面">
+        <img src="../../img/05/STEP9.png" alt="STEP9の操作画面">
       </div>
     </div>
   </section>
@@ -233,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </p>
       </div>
       <div class="step-image">
-        <img src="../../img/01/STEP10.png" alt="STEP10の操作画面">
+        <img src="../../img/05/STEP10.png" alt="STEP10の操作画面">
       </div>
     </div>
   </section>
@@ -247,9 +241,11 @@ document.addEventListener("DOMContentLoaded", function() {
 </main>
 </div>
 
-<footer>
-  © 2025 ウィーキットシステムス
-</footer>
+<!-- footerを外部ファイルから読み込む -->
+<footer id="main-footer"></footer>
+
+<!-- 共通JSを読み込む -->
+<script src="../../../js/load-common.js"></script>
 
 </body>
 </html>

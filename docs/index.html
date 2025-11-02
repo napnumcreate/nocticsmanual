@@ -2,22 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Noctics ユーザーズマニュアル</title>
+<title>勤怠管理システム ユーザーズマニュアル</title>
 <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-<!-- headerを外部ファイルから読み込むように修正 -->
+<!-- headerを外部ファイルから読み込む -->
 <header id="main-header"></header>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  fetch("./header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("main-header").innerHTML = html;
-    });
-});
-</script>
 
 <div class="container">
   <!-- 左側メニュー -->
@@ -46,210 +37,55 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <!-- 右側メインコンテンツ -->
   <main class="main-content">
-  <div class="content">
-  <!-- ページタイトル -->
-  <div class="page-title">キャストの追加/登録/削除</div>
+    <h1>はじめに・初期設定</h1>
+    <p>このセクションでは、顧客管理システムの導入前に必要な準備と初期設定について説明します。</p>
 
-  <!-- パンくず -->
-  <nav class="breadcrumb">
-    <a href="00_toppage.html">ホーム</a> &gt;
-    <!--<a href="#">設定する</a> &gt;-->
-    <span>設定する</span> &gt;
-    <a href="#">キャストの追加/登録/削除</a>
-  </nav>
+    <div class="button-container">
+      <a href="#準備" class="btn">準備</a>
+      <a href="#ログイン" class="btn">システムにログイン</a>
+      <a href="#トップページ" class="btn">トップページ構成</a>
+    </div>
 
-  <!-- STEP1 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順1</div>
-      <div class="step-title">データ管理画面へ</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          ダッシュボードより、「メニュー」の「データ管理」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP1.png" alt="STEP1の操作画面">
-      </div>
-    </div>
-  </section>
+    <section id="準備">
+      <h2>準備（用意するもの・機器の準備）</h2>
+      <ul>
+        <li><strong>パソコン</strong>：インターネット接続可能なPC</li>
+        <li><strong>顧客管理システム設定完了のご案内</strong>：管理画面URL、ログインID、パスワード</li>
+        <li><strong>顧客情報一覧</strong>：登録する顧客情報一覧（CSV形式推奨）</li>
+      </ul>
+    </section>
 
-  <!-- STEP2 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順2</div>
-      <div class="step-title">キャスト一覧画面へ</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          データ管理画面より、「キャスト」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP2.png" alt="STEP2の操作画面">
-      </div>
-    </div>
-  </section>
+    <section id="ログイン">
+      <h2>システムにログイン</h2>
+      <ol>
+        <li>管理画面URLにアクセス</li>
+        <li>ログインIDとパスワードを入力</li>
+        <li><strong>ログイン</strong> ボタンをクリック</li>
+      </ol>
+    </section>
 
-    <!-- STEP3 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順3</div>
-      <div class="step-title">キャスト追加</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          キャスト一覧画面に遷移します。右上の「キャスト追加」をクリックします。
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP3.png" alt="STEP3の操作画面">
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP4 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順4</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP4.png" alt="STEP4の操作画面">
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP5 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順5</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP5.png" alt="STEP5の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP6 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順6</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP6.png" alt="STEP6の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP7 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順7</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP7.png" alt="STEP7の操作画面">
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP8 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順8</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP8.png" alt="STEP8の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP9 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順9</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP9.png" alt="STEP9の操作画面">
-      </div>
-    </div>
-  </section>
-
-    <!-- STEP10 -->
-  <section class="step">
-    <div class="step-header">
-      <div class="step-number">手順10</div>
-      <div class="step-title">タイトル</div>
-    </div>
-    <div class="step-body">
-      <div class="step-text">
-        <p>
-          テキスト
-        </p>
-      </div>
-      <div class="step-image">
-        <img src="../../img/01/STEP10.png" alt="STEP10の操作画面">
-      </div>
-    </div>
-  </section>
+    <section id="トップページ">
+      <h2>トップページの画面構成</h2>
+      <ul>
+        <li><strong>ホーム</strong>：トップページ</li>
+        <li><strong>顧客一覧</strong>：登録済み顧客情報一覧</li>
+        <li><strong>新規登録</strong>：新しい顧客情報登録</li>
+        <li><strong>設定</strong>：システム設定画面</li>
+      </ul>
+    </section>
+  </main>
+</div>
 
 <!-- 最終更新日 -->
 <p>
   最終更新日：2025年9月30日
 </p>
 
-</div>
-</main>
-</div>
+<!-- footerを外部ファイルから読み込む -->
+<footer id="main-footer"></footer>
 
-<footer>
-  © 2025 ウィーキットシステムス
-</footer>
+<!-- 共通JSを読み込む -->
+<script src="./js/load-common.js"></script>
 
 </body>
 </html>
