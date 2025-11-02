@@ -1,77 +1,83 @@
 // docs/js/load-common.js
+
+// いまのURLから「サイトルートへの相対プレフィックス」を計算
+function getRelRoot() {
+  // 末尾スラッシュを除去して分割
+  const parts = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+  // 最後がファイル名なら1つ上げる
+  const last = parts[parts.length - 1] || '';
+  const isFile = /\.[a-z0-9]+$/i.test(last);
+  const depth = isFile ? (parts.length - 1) : parts.length; // ルート配下=0
+  return '../'.repeat(Math.max(depth - 1, 0));
+}
+
+function loadDirLabelMap(callback) {
+  const script = document.createElement('script');
+  // breadcrumb-labels.js は docs/js/ 配下にある想定
+  script.src = getRelRoot() + 'js/breadcrumb-labels.js';
+  script.onload = callback;
+  document.head.appendChild(script);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
-  // header
-  const header = document.getElementById("main-header");
-  if (header) {
-    fetch("./header.html")
-      .then(res => res.text())
-      .then(html => { header.innerHTML = html; });
-  }
-  // footer
-  const footer = document.getElementById("main-footer");
-  if (footer) {
-    fetch("./footer.html")
-      .then(res => res.text())
-      .then(html => { footer.innerHTML = html; });
-  }
+  loadDirLabelMap(function() {
+    const relRoot = getRelRoot();
 
-  // パンくず自動生成
-  const breadcrumb = document.getElementById("breadcrumb");
-  if (breadcrumb) {
-    let pathParts = window.location.pathname.split('/').filter(Boolean);
-    // "docs"を除外
-    if (pathParts[0] === "docs") pathParts = pathParts.slice(1);
-
-    // ルートからの相対パスを計算
-    let relPath = "";
-    for (let i = 0; i < pathParts.length - 1; i++) {
-      relPath += "../";
+    // header
+    const header = document.getElementById("main-header");
+    if (header) {
+      fetch(relRoot + "header.html")
+        .then(res => res.text())
+        .then(html => { header.innerHTML = html; });
     }
-    // ディレクトリ名→日本語ラベルのマップ
-    const dirLabelMap = {
-      "master": "設定する",
-      "cast": "キャストの追加/登録/削除",
-      "customer": "顧客の追加/登録/削除",
-      "type": "女の子タイプ管理",
-      "option": "オプション管理",
-      // 必要に応じて追加
-    };
 
-    // パンくずリスト生成
-    const items = [];
-    // ホーム
-    items.push({ label: "ホーム", href: relPath + "00_toppage.html" });
+    // footer
+    const footer = document.getElementById("main-footer");
+    if (footer) {
+      fetch(relRoot + "footer.html")
+        .then(res => res.text())
+        .then(html => { footer.innerHTML = html; });
+    }
 
-    // 階層ごとにリンクを生成
-    let accumulatedPath = "";
-    for (let i = 0; i < pathParts.length - 1; i++) { // 最後はファイル名
-      accumulatedPath += "/" + pathParts[i];
-      const dir = pathParts[i];
-      const label = dirLabelMap[dir] || dir;
-      if (label) {
-        items.push({
-          label: label,
-          href: accumulatedPath + "/index.html"
-        });
+    // パンくず自動生成
+    const breadcrumb = document.getElementById("breadcrumb");
+    if (breadcrumb) {
+      // 例: /username/repo/master/01_login.html または /master/01_login.html
+      let parts = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+
+      // 最後がファイル名なら除去して「ディレクトリ配列」に
+      if (parts.length && /\.[a-z0-9]+$/i.test(parts[parts.length - 1])) {
+        parts = parts.slice(0, -1);
       }
-    }
-    // 最後はファイル名（index.htmlなど）→ラベルはディレクトリ名のラベル
-    const lastDir = pathParts[pathParts.length - 2];
-    const lastLabel = dirLabelMap[lastDir] || lastDir;
-    if (items.length > 1) {
-      // 最後の項目はリンクなし
-      items[items.length - 1] = { label: lastLabel };
-    }
 
-    // パンくずHTML出力
-    breadcrumb.innerHTML = items
-      .filter(item => item.label)
-      .map((item, i, arr) => {
-        if (i < arr.length - 1 && item.href) {
-          return `<a href="${item.href}">${item.label}</a> &gt; `;
-        } else {
+      // GitHub Pagesの“ユーザー名/リポジトリ名”を含む場合に備え、
+      // サイトのルート（relRoot で決まる深さ）に合わせて末尾側から使う
+      // ここでは単純化して「現在のディレクトリ階層のみ」を対象にする
+      const dirLabelMap = window.dirLabelMap || [];
+      const items = [];
+
+      // ホーム
+      items.push({ label: "ホーム", href: relRoot + "index.html" });
+
+      // 階層リンク（相対リンクで安全に）
+      // 例: master/ -> relRoot + "master/index.html"
+      for (let i = 0; i < parts.length; i++) {
+        const label = dirLabelMap[parts[i]] || parts[i];
+        items.push({ label, href: relRoot + parts.slice(0, i + 1).join('/') + "/index.html" });
+      }
+
+      // 最後の項目は「現在地」扱いでリンクを外す
+      if (items.length > 1) {
+        items[items.length - 1] = { label: items[items.length - 1].label };
+      }
+
+      breadcrumb.innerHTML = items
+        .filter(item => item.label)
+        .map((item, i, arr) => {
+          if (i < arr.length - 1 && item.href) return `<a href="${item.href}">${item.label}</a> &gt; `;
           return `<span>${item.label}</span>`;
-        }
-      }).join('');
-  }
+        })
+        .join('');
+    }
+  });
 });
