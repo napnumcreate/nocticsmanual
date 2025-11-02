@@ -32,6 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((html) => { header.innerHTML = html; })
         .catch(() => { /* 404時は無視 */ });
     }
+    
+    const sideMenu = document.getElementById("main-side-menu");
+    if (sideMenu) {
+      fetch(root("side-menu.html"))
+        .then((res) => res.ok ? res.text() : Promise.reject(res))
+        .then((html) => { sideMenu.innerHTML = html; })
+        .catch(() => { /* 404時は無視 */ });
+    }
 
     const footer = document.getElementById("main-footer");
     if (footer) {
