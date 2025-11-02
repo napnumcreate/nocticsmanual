@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Noctics ユーザーズマニュアル</title>
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-<header>
-  <!-- ロゴは必要に応じてコメントを外して使用 -->
-  <!--<img src="logo.png" alt="会社ロゴ">-->
-
-    <div class="title">Noctics Ver.1.0 ユーザーズマニュアル</div>
-  
-  <!-- ページ番号を表示したい場合はコメントを外して使用 -->
-  <!--<div class="page">ページ: 1</div>-->
-</header>
+<!-- headerを外部ファイルから読み込むように修正 -->
+<header id="main-header"></header>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("./header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("main-header").innerHTML = html;
+    });
+});
+</script>
 
 <div class="container">
   <!-- 左側メニュー -->
@@ -41,7 +43,6 @@
   <a href="#本日出退勤" class="menu-btn">本日の出退勤状況を確認する</a>
   <a href="#勤務確定" class="menu-btn">勤務を確定する</a>
 </nav>
-
 
   <!-- 右側メインコンテンツ -->
   <main class="main-content">
