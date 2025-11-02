@@ -57,13 +57,13 @@ document.addEventListener("DOMContentLoaded", function() {
       const items = [];
 
       // ホーム
-      items.push({ label: "ホーム", href: relRoot + "index.html" });
+      items.push({ label: "ホーム", href: relRoot });
 
       // 階層リンク（相対リンクで安全に）
-      // 例: master/ -> relRoot + "master/index.html"
+      // 例: master/ -> relRoot
       for (let i = 0; i < parts.length; i++) {
         const label = dirLabelMap[parts[i]] || parts[i];
-        items.push({ label, href: relRoot + parts.slice(0, i + 1).join('/') + "/index.html" });
+        items.push({ label, href: relRoot + parts.slice(0, i + 1).join('/') });
       }
 
       // 最後の項目は「現在地」扱いでリンクを外す
