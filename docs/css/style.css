@@ -14,7 +14,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 100px; /* ヘッダー高さの基準 */
+  height: 50px; /* ヘッダー高さの基準 */
   background-color: #f9f9f9;
   border-bottom: 1px solid #ccc;
   display: flex;
@@ -23,7 +23,7 @@ header {
   padding: 0 10px;
   z-index: 1000;
 }
-header img { height: 75px; }
+header img { height: 45px; } /* ロゴ画像も半分に調整 */
 header .title { text-align: center; flex-grow: 1; font-weight: bold; }
 /*header .page { text-align: right; }*/
 
@@ -45,23 +45,26 @@ footer {
 .container {
   display: flex;
   justify-content: center;
-  margin: 130px auto 125px auto; /* 上下マージンをヘッダーとフッターに合わせて増やす */
-  width: fit-content;
-  min-height: 100vh;
+  margin: 80px auto 125px auto; /* ← ヘッダー高さに合わせて60px程度に調整 */
+  width: fit-content; /* ← ここを変更 */
+  min-height: unset; /* 最低高さを無しに */
   padding-top: 0; /* ヘッダー分のスペースはマージンに統合 */
 }
 
 /* ===== サイドメニュー ===== */
 .side-menu {
-  width: 220px;
+  width: 20vw;              /* 画面の25%幅に変更 */
+  max-width: 400px;         /* 最大幅は任意で調整 */
+  min-width: 200px;         /* 最小幅も任意で調整 */
   position: sticky;
-  top: 75px; /* ヘッダー高さ分 */
-  height: calc(100vh - 75px); /* 固定高さ */
+  top: 50px; /* ヘッダー高さに合わせて調整 */
+  /* height: auto; ← 明示的に指定不要（デフォルトで中身の高さになる） */
   padding: 10px;
   background-color: #f4f4f4;
   border: 1px solid #ccc;
   margin-right: 20px;
   overflow-y: auto;
+  align-self: flex-start; /* 追加：高さを親のflexに合わせず自身の高さにする */
 }
 
 .side-menu h3 {
@@ -88,20 +91,36 @@ footer {
   outline: none;
 }
 
+/* 追加: スマホ対応 */
+@media (max-width: 900px) {
+  .side-menu {
+    width: 100%;
+    margin-right: 0;
+    position: static;
+    height: auto;
+  }
+}
+
 /* ===== メインエリア ===== */
 .main-content {
-  width: 800px;
+  width: 800px; /* ← ここを変更 */
+  max-width: 100%;
   padding: 20px;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow-y: visible;
-  min-height: auto;
-  max-height: none;
+  min-height: unset; /* 最低高さを無しに */
+  box-sizing: border-box;
 }
 
-.main-content .content {
-  width: 100%;
+/* 追加: スマホ対応 */
+@media (max-width: 900px) {
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
 }
 
 /* ===== ページ内の共通要素 ===== */
@@ -196,5 +215,102 @@ footer {
   }
   .step-image {
     max-width: 100%;
+  }
+}
+
+/* 追加: スマホ・タブレット対応 */
+@media (max-width: 900px) {
+  .container {
+    width: 100%;
+    flex-direction: column;
+    margin: 120px 0 100px 0;
+  }
+}
+
+/* ===== レスポンシブ横幅調整 ===== */
+
+/* PC大画面対応: 1200px以上は中央寄せ＆最大幅制限 */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main-content {
+    max-width: 1000px;
+    width: 100%;
+  }
+}
+
+/* タブレット～PC中画面: 900px～1200px */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .container {
+    max-width: 95vw;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main-content {
+    max-width: 800px;
+    width: 100%;
+  }
+}
+
+/* スマホ・タブレット: 900px未満 */
+@media (max-width: 899px) {
+  .container {
+    width: 100%;
+    flex-direction: column;
+    margin: 120px 0 100px 0;
+    max-width: 100vw;
+  }
+  .main-content {
+    width: 100%;
+    max-width: 100vw;
+    padding: 10px;
+  }
+  .side-menu {
+    width: 100%;
+    margin-right: 0;
+    position: static;
+    height: auto;
+  }
+}
+
+/* ===== 追加: 横幅を常に画面サイズに合わせて広げる ===== */
+.container {
+  width: 100%;
+  max-width: 100vw; /* 画面幅いっぱいまで広げる */
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 100vw; /* 画面幅いっぱいまで広げる */
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* 画面が大きい場合は横幅を画面の80%にする（中央寄せ） */
+.container,
+.main-content {
+  width: 80vw;
+  max-width: 1600px; /* 必要に応じて最大幅を調整 */
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* スマホ・タブレット: 900px未満は全幅 */
+@media (max-width: 899px) {
+  .container,
+  .main-content {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
