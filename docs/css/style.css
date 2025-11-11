@@ -1,20 +1,24 @@
-/* ===== 基本リセット / レイアウト ===== */
+/* ===== Reset / Base ===== */
 *,
 *::before,
 *::after { box-sizing: border-box; }
+
+:root {
+  --hdr-h: 50px;
+  --gap: 20px;
+  --container-max: 1600px; /* 「全体80%だが上限1600px」に揃える */
+}
 
 body {
   margin: 0;
   font-family: sans-serif;
 }
 
-/* ヘッダー（固定） */
+/* ===== Header ===== */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px; /* ヘッダー高さの基準 */
+  inset: 0 0 auto 0; /* top:0, left:0, right:0 */
+  height: var(--hdr-h);
   background-color: #f9f9f9;
   border-bottom: 1px solid #ccc;
   display: flex;
@@ -23,48 +27,49 @@ header {
   padding: 0 10px;
   z-index: 1000;
 }
-header img { height: 45px; } /* ロゴ画像も半分に調整 */
+header img { height: calc(var(--hdr-h) - 5px); }
 header .title { text-align: center; flex-grow: 1; font-weight: bold; }
-/*header .page { text-align: right; }*/
 
-/* フッター */
+/* ===== Footer ===== */
 footer {
-  /* position: fixed; */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 75px;
+  /* 固定しない（固定したい場合は position: fixed; bottom: 0; left: 0; right: 0; を付与） */
   border-top: 1px solid #ccc;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.9em;
   line-height: 75px;
   background: #f9f9f9;
+  height: 75px;
 }
 
-/* コンテナ：ヘッダー分の余白を確保、左右カラムレイアウト */
+/* ===== Layout: Container / Side Menu / Main ===== */
 .container {
   display: flex;
-  justify-content: center;
-  margin: 80px auto 125px auto; /* ← ヘッダー高さに合わせて60px程度に調整 */
-  width: fit-content; /* ← ここを変更 */
-  min-height: unset; /* 最低高さを無しに */
-  padding-top: 0; /* ヘッダー分のスペースはマージンに統合 */
+  gap: var(--gap);
+  align-items: flex-start;
+
+  /* ヘッダー分の余白 */
+  margin: calc(var(--hdr-h) + 30px) auto 125px;
+
+  /* 常に画面幅80%＋中央寄せ、最大幅は変数 */
+  width: 80vw;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0 10px; /* 端のめり込み防止 */
 }
 
-/* ===== サイドメニュー ===== */
 .side-menu {
-  width: 20vw;              /* 画面の25%幅に変更 */
-  max-width: 400px;         /* 最大幅は任意で調整 */
-  min-width: 200px;         /* 最小幅も任意で調整 */
+  width: 20vw;            /* 値とコメントを一致（20%相当） */
+  max-width: 400px;
+  min-width: 200px;
   position: sticky;
-  top: 50px; /* ヘッダー高さに合わせて調整 */
-  /* height: auto; ← 明示的に指定不要（デフォルトで中身の高さになる） */
+  top: var(--hdr-h);
   padding: 10px;
   background-color: #f4f4f4;
   border: 1px solid #ccc;
-  margin-right: 20px;
   overflow-y: auto;
-  align-self: flex-start; /* 追加：高さを親のflexに合わせず自身の高さにする */
+  align-self: flex-start;
 }
 
 .side-menu h3 {
@@ -82,48 +87,25 @@ footer {
   text-decoration: none;
   color: #0078d4;
   padding: 6px 0;
-  border-radius: 0;
   background: transparent;
 }
 .menu-btn:hover,
-.menu-btn:focus {
+.menu-btn:focus-visible {     /* アクセシビリティに配慮 */
   color: #005a9e;
   outline: none;
 }
 
-/* 追加: スマホ対応 */
-@media (max-width: 900px) {
-  .side-menu {
-    width: 100%;
-    margin-right: 0;
-    position: static;
-    height: auto;
-  }
-}
-
-/* ===== メインエリア ===== */
+/* main は可変幅（残りを使用） */
 .main-content {
-  width: 800px; /* ← ここを変更 */
-  max-width: 100%;
+  flex: 1 1 0;
+  min-width: 0; /* 折返しさせるための保険 */
   padding: 20px;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  overflow-y: visible;
-  min-height: unset; /* 最低高さを無しに */
-  box-sizing: border-box;
 }
 
-/* 追加: スマホ対応 */
-@media (max-width: 900px) {
-  .main-content {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px;
-  }
-}
-
-/* ===== ページ内の共通要素 ===== */
+/* ===== Common elements ===== */
 .page-title {
   background-color: #ff99cc;
   color: #fff;
@@ -133,7 +115,6 @@ footer {
   margin-bottom: 12px;
   border-radius: 5px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .breadcrumb {
@@ -144,7 +125,7 @@ footer {
 .breadcrumb a { text-decoration: none; color: #0078d4; }
 .breadcrumb span { color: #555; }
 
-/* ===== STEPブロック ===== */
+/* ===== Step block ===== */
 .step {
   border: 1px solid #e0e0e0;
   padding: 14px;
@@ -172,34 +153,26 @@ footer {
 }
 .step-title { font-weight: bold; font-size: 1.05em; }
 
-/* STEP本文：テキスト左、画像右 */
 .step-body {
   display: flex;
   gap: 20px;
   align-items: flex-start;
   flex-wrap: nowrap;
-  box-sizing: border-box;
 }
 
-/* ✅ 修正版：画像がないときはテキストを100%幅に */
 .step-text {
   flex: 1 1 100%;
   max-width: 100%;
-  word-break: normal;
   line-height: 1.6;
-  box-sizing: border-box;
 }
 
-/* 右画像：あるときだけ表示される（40%幅） */
 .step-image {
   flex: 0 0 40%;
   max-width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
 }
-
 .step-image img {
   max-width: 100%;
   height: auto;
@@ -208,109 +181,85 @@ footer {
   display: block;
 }
 
-/* スマホ対応：縦並び */
-@media (max-width: 768px) {
+/* ===== Responsive (<=900px) ===== */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 10px;
+    margin: calc(var(--hdr-h) + 70px) 0 100px; /* スマホは余白広め */
+    width: 100%;          /* 100vwではなく100%にして横スクロール回避 */
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 12px;
+  }
+
+  .side-menu {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    position: static; /* sticky解除 */
+    height: auto;
+  }
+
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
   .step-body {
     flex-direction: column;
   }
   .step-image {
     max-width: 100%;
+    flex: 0 0 auto;
   }
 }
 
-/* 追加: スマホ・タブレット対応 */
+/* ===== 2カラムのカードレイアウト ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 横に2つ */
+  gap: var(--gap);
+}
+
+/* 既存のUIに馴染むカード */
+.card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;        /* 既存main-contentより少し柔らかく */
+  padding: 16px;
+  min-height: 160px;         /* 任意：高さそろえたいなら調整 */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-header {
+  font-weight: bold;
+  font-size: 1.05em;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 8px;
+}
+
+.card-body {
+  flex: 1;
+}
+
+/* リストの体裁（任意） */
+.card-list {
+  margin: 0;
+  padding-left: 16px;
+}
+.card-list li {
+  line-height: 1.6;
+}
+
+/* スマホは1カラムに */
 @media (max-width: 900px) {
-  .container {
-    width: 100%;
-    flex-direction: column;
-    margin: 120px 0 100px 0;
-  }
-}
-
-/* ===== レスポンシブ横幅調整 ===== */
-
-/* PC大画面対応: 1200px以上は中央寄せ＆最大幅制限 */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .main-content {
-    max-width: 1000px;
-    width: 100%;
-  }
-}
-
-/* タブレット～PC中画面: 900px～1200px */
-@media (min-width: 900px) and (max-width: 1199px) {
-  .container {
-    max-width: 95vw;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .main-content {
-    max-width: 800px;
-    width: 100%;
-  }
-}
-
-/* スマホ・タブレット: 900px未満 */
-@media (max-width: 899px) {
-  .container {
-    width: 100%;
-    flex-direction: column;
-    margin: 120px 0 100px 0;
-    max-width: 100vw;
-  }
-  .main-content {
-    width: 100%;
-    max-width: 100vw;
-    padding: 10px;
-  }
-  .side-menu {
-    width: 100%;
-    margin-right: 0;
-    position: static;
-    height: auto;
-  }
-}
-
-/* ===== 追加: 横幅を常に画面サイズに合わせて広げる ===== */
-.container {
-  width: 100%;
-  max-width: 100vw; /* 画面幅いっぱいまで広げる */
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-}
-
-.main-content {
-  width: 100%;
-  max-width: 100vw; /* 画面幅いっぱいまで広げる */
-  box-sizing: border-box;
-  padding: 20px;
-}
-
-/* 画面が大きい場合は横幅を画面の80%にする（中央寄せ） */
-.container,
-.main-content {
-  width: 80vw;
-  max-width: 1600px; /* 必要に応じて最大幅を調整 */
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-}
-
-/* スマホ・タブレット: 900px未満は全幅 */
-@media (max-width: 899px) {
-  .container,
-  .main-content {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
