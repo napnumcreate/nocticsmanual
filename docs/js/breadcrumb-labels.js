@@ -1,5 +1,5 @@
 window.dirLabelMap = {
-  "master": "設定する",
+  "master": "データ管理",
   "cast": "キャストの追加/登録/削除",
   "customer": "顧客の追加/登録/削除",
   "type": "女の子タイプ管理",

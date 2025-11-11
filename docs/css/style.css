@@ -224,6 +224,11 @@ footer {
   gap: var(--gap);
 }
 
+/* ← このページだけ1カラムにしたい場合に使うクラス */
+.cards.is-single {
+  grid-template-columns: 1fr;
+}
+
 /* 既存のUIに馴染むカード */
 .card {
   background: #fff;
