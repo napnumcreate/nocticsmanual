@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
-  <!-- headerを外部ファイルから読み込む -->
-  <header id="main-header"></header>
+  <!-- header（必要なら部分HTML化して data-include で読む） -->
+  <header id="main-header" data-include="./partials/header.html"></header>
 
   <div class="container">
-
-    <!-- 右側メインコンテンツ -->
     <main class="main-content">
-      <!-- タイトル & パンくず（CSSに合わせたクラスを使用） -->
       <div class="page-title">はじめに・初期設定</div>
       <nav class="breadcrumb">
-        <a href="#">Home</a> <span> / </span> はじめに・初期設定
+        <a href="./index.html">Home</a> <span> / </span> はじめに・初期設定
       </nav>
 
       <p>
@@ -24,67 +21,22 @@
         下のカードから各項目をご確認ください（画面幅が広い場合は2列表示、スマホでは1列表示になります）。
       </p>
 
-      <!-- 2カラムのカードレイアウト（CSSの .cards / .card を使用） -->
+      <!-- 2カラムのカードレイアウト：カードはプレースホルダー＋data-card -->
       <section class="cards">
-
-        <!-- 準備 -->
-        <article class="card" id="準備">
-          <div class="card-header">準備（用意するもの・機器の準備）</div>
-          <div class="card-body">
-            <ul class="card-list">
-              <li><strong>パソコン</strong>：インターネット接続可能なPC</li>
-              <li><strong>設定完了のご案内</strong>：管理画面URL、ログインID、パスワード</li>
-              <li><strong>顧客情報一覧</strong>：登録する顧客情報一覧（CSV形式推奨）</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- ログイン -->
-        <article class="card" id="ログイン">
-          <div class="card-header">システムにログイン</div>
-          <div class="card-body">
-            <ol class="card-list">
-              <li>管理画面URLにアクセス</li>
-              <li>ログインIDとパスワードを入力</li>
-              <li><strong>ログイン</strong> ボタンをクリック</li>
-            </ol>
-          </div>
-        </article>
-
-        <!-- トップページ構成 -->
-        <article class="card" id="トップページ">
-          <div class="card-header">トップページの画面構成</div>
-          <div class="card-body">
-            <ul class="card-list">
-              <li><strong>ホーム</strong>：トップページ</li>
-              <li><strong>顧客一覧</strong>：登録済み顧客情報一覧</li>
-              <li><strong>新規登録</strong>：新しい顧客情報登録</li>
-              <li><strong>設定</strong>：システム設定画面</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- クイックアクセス（元のボタン相当） -->
-        <article class="card">
-          <div class="card-header">クイックアクセス</div>
-          <div class="card-body">
-            <ul class="card-list">
-              <li><a href="#準備" class="menu-btn">準備</a></li>
-              <li><a href="#ログイン" class="menu-btn">システムにログイン</a></li>
-              <li><a href="#トップページ" class="menu-btn">トップページ構成</a></li>
-            </ul>
-          </div>
-        </article>
-
+        <article class="card" id="準備"       data-card="prep"></article>
+        <article class="card" id="ログイン"    data-card="login"></article>
+        <article class="card" id="トップページ" data-card="top"></article>
+        <article class="card"                  data-card="quick-access"></article>
       </section>
+
       <p>最終更新日：2025年9月30日</p>
     </main>
   </div>
 
-  <!-- footerを外部ファイルから読み込む -->
-  <footer id="main-footer"></footer>
+  <footer id="main-footer" data-include="./partials/footer.html"></footer>
 
-  <!-- 共通JSを読み込む -->
-  <script src="./js/load-common.js"></script>
+  <!-- 読み込み順：共通→カード -->
+  <script src="../js/load-common.js" defer></script>
+  <script src="../js/load-cards.js" data-card-root="../card/" defer></script>
 </body>
 </html>
