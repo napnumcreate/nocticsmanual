@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- header（部分HTML） -->
+  <header id="main-header" data-include="../partials/header.html"></header>
+
+  <div class="container">
+    <main class="main-content">
+      <div class="page-title">ダッシュボード</div>
+      <nav class="breadcrumb" id="breadcrumb"></nav>
+
+      <p>
+        このセクションでは、勤怠管理システムの導入前に必要な準備と初期設定について説明します。
+        下のカードから各項目をご確認ください。
+      </p>
+
+      <!-- このページだけ1カラムにする -->
+      <section class="cards is-single">
+        <article class="card" id="ダッシュボード" data-card="root"></article>
+      </section>
+
+      <p>最終更新日：2025年9月30日</p>
+    </main>
+  </div>
+
+  <!-- footer（部分HTML） -->
+  <footer id="main-footer" data-include="../partials/footer.html"></footer>
+
+  <!-- 読み込み順：共通 → カード（カードは ../card/ から読み込み） -->
+  <script src="../js/load-common.js" defer></script>
+  <script src="../js/load-cards.js" data-card-root="../card/" defer></script>
+</body>
+</html>
