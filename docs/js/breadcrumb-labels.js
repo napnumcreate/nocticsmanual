@@ -1,13 +1,13 @@
 window.dirLabelMap = {
   //親ディレクトリ
   "master": "データ管理",
+  "cast": "キャスト",
+  "customer": "顧客",
 
   //中間ディレクトリ
   
   // master.html 追加分
   "girltype": "キャストタグについて",
-  "cast": "キャスト一覧",
-  "customerlist": "顧客一覧",
   "apply": "予約方法",
   "payment": "支払方法",
   "plan": "プラン",
@@ -25,7 +25,4 @@ window.dirLabelMap = {
   "add":"追加",
   "edit":"編集",
   "delete":"削除",
-
-  //開発用
-  "sample":"サンプル",
 };
