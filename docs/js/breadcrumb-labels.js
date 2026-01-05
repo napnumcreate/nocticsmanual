@@ -5,7 +5,7 @@ window.dirLabelMap = {
   "cast": "キャスト",
   "customer": "顧客一覧",
   "incomplete": "未完了スケジュール",
-  "list": "顧客・接客一覧",
+  "list": "予約・接客一覧",
   "login": "ログイン",
   "master": "データ管理",
   "others": "その他の機能",
@@ -52,10 +52,12 @@ window.dirLabelMap = {
   "timeline": "タイムライン",
   "workmodal": "勤務詳細",
   "lowerright": "本日の売り上げ",
+  "restmodal": "休憩詳細",
 
   //list 追加分
   "detail": "詳細",
   "sum": "合計",
+  "booking_attend_list": "予約・接客一覧の見かた",
 
   //booking追加分
   "addition": "予約追加",
