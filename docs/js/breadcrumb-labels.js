@@ -34,7 +34,6 @@ window.dirLabelMap = {
   "castlist": "キャストの見かた",
   "action": "キャストの操作",
   "bookingexecution": "予約実行",
-  "attendend": "接客終了",
   "restset": "休憩",
   "restend": "休憩終了",
   "workstart": "出勤",
